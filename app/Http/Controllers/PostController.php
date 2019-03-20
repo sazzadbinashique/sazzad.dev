@@ -16,9 +16,9 @@
             // $posts = Post::all();
             // $posts = Post::orderBy('id', 'desc')->get();
             $posts = Post::all();
-
-
-            // dd($posts);
+//
+//
+//            // dd($posts);
             return view('posts.index', compact('posts'));
         }
 
@@ -29,7 +29,8 @@
          */
         public function create()
         {
-            //
+
+            return view('posts.create');
         }
 
         /**
@@ -40,7 +41,30 @@
          */
         public function store(Request $request)
         {
-            //
+
+
+//            return $request->all();
+
+//            Post::create($request->all());
+//            $input=$request->all();
+//
+//            $input['title']=$request->all();
+//
+             $user_id= 1;
+             $is_admin= 1;
+
+            $posts= new Post;
+
+            $posts->user_id  = $user_id;
+            $posts->title  = $request->title;
+            $posts->content =$request->content ;
+            $posts->is_admin =$is_admin;
+
+//            dd($posts);
+            $posts->save();
+
+            return redirect('/posts');
+
         }
 
         /**
@@ -51,7 +75,10 @@
          */
         public function show($id)
         {
-            //
+            $post = Post::findOrFail($id);
+
+
+            return view('posts.show', compact('post'));
         }
 
         /**
@@ -62,7 +89,9 @@
          */
         public function edit($id)
         {
-            //
+            $post= Post::findOrFail($id);
+
+            return view('posts.edit', compact('post'));
         }
 
         /**
@@ -74,7 +103,13 @@
          */
         public function update(Request $request, $id)
         {
-            //
+            $post = Post::findOrFail($id);
+
+            $post->update($request->all());
+
+//            dd($post);
+
+            return redirect('/posts');
         }
 
         /**
@@ -85,6 +120,12 @@
          */
         public function destroy($id)
         {
-            //
+//            $post= Post::whereId($id)->delete();
+            $post= Post::findOrFail($id);
+
+            $post->delete();
+
+
+            return redirect('/posts');
         }
     }
