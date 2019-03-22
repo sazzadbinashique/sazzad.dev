@@ -18,13 +18,10 @@
                     <label for="content">Content</label>
                     <textarea class="form-control" name="content" id="" cols="30" rows="10">{{$post->content}}</textarea>
                 </div>
-
                 <div class="form-group text-left">
                     <input type="submit" class="btn btn-primary" value="Update">
                 </div>
-
             </form>
-
             <form action="/posts/{{$post->id}}" method="post">
                 {{ csrf_field() }}
 
@@ -33,14 +30,25 @@
                 <div class="form-group text-right">
                     <input type="submit" class="btn btn-danger" value="Delete">
                 </div>
-
             </form>
-
-
-
 
         </div>
     </div>
+
+    @if(count($errors)>0)
+
+        <div class="alert alert-danger">
+            <ul>
+
+
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+
+            </ul>
+        </div>
+
+    @endif
 
 
 

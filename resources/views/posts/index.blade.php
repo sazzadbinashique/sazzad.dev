@@ -4,6 +4,13 @@
 
 
 	<div class="col-md-9 col-md-offset-2">
+
+
+
+            <a href="{{route('posts.create')}}" class="btn btn-secondary" type="button">Add Post</a>
+
+
+
         <div class="table-responsive">
             <table class="table  ">
                 <thead>

@@ -1,6 +1,7 @@
 <?php
     namespace App\Http\Controllers;
 
+    use App\Http\Requests\CreatePostRequest;
     use Illuminate\Http\Request;
     use App\Post;
 
@@ -39,8 +40,15 @@
          * @param  \Illuminate\Http\Request  $request
          * @return \Illuminate\Http\Response
          */
-        public function store(Request $request)
+        public function store(CreatePostRequest $request)
         {
+
+
+//            $this->validate($request, [
+//
+//                'title'=>'required',
+//                'content'=>'required'
+//            ]);
 
 
 //            return $request->all();
@@ -101,8 +109,17 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function update(Request $request, $id)
+        public function update(CreatePostRequest $request, $id)
         {
+
+//            $this->validate($request, [
+//
+//                'title'=>'required',
+//                'content'=>'required'
+//            ]);
+
+
+
             $post = Post::findOrFail($id);
 
             $post->update($request->all());

@@ -67,7 +67,7 @@
 	// });
 
 
-	Route::resource('posts', 'PostController');
+
 
 
 //	// Laravel eloquent for Database
@@ -192,4 +192,10 @@
 //            echo $post->content . "<br>";
 //        }
 //    });
-//
+
+
+    Route::group(['middleware'=>'web'], function (){
+
+        Route::resource('posts', 'PostController');
+
+    });
