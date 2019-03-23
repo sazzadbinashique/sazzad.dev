@@ -44,6 +44,32 @@
         {
 
 
+            $input= $request->all();
+//            dd($input);
+
+            if ($file=$request->file('path')){
+
+                $name = $file->getClientOriginalName();
+                $file->move('images', $name);
+                $input['path']= $name;
+            }
+
+            Post::create($input);
+
+
+
+//           $file= $request->file('file');
+//
+//            echo  "<br>";
+//
+//
+//            echo $file->getClientOriginalName();
+//            echo "<br>";
+//
+//            echo  $file->getClientSize();
+
+//            echo $file->path();
+
 //            $this->validate($request, [
 //
 //                'title'=>'required',
@@ -58,19 +84,19 @@
 //
 //            $input['title']=$request->all();
 //
-             $user_id= 1;
-             $is_admin= 1;
-
-            $posts= new Post;
-
-            $posts->user_id  = $user_id;
-            $posts->title  = $request->title;
-            $posts->content =$request->content ;
-            $posts->is_admin =$is_admin;
-
-//            dd($posts);
-            $posts->save();
-
+//             $user_id= 1;
+//             $is_admin= 1;
+//
+//            $posts= new Post;
+//
+//            $posts->user_id  = $user_id;
+//            $posts->title  = $request->title;
+//            $posts->content =$request->content ;
+//            $posts->is_admin =$is_admin;
+//
+////            dd($posts);
+//            $posts->save();
+//
             return redirect('/posts');
 
         }
@@ -85,7 +111,6 @@
         {
             $post = Post::findOrFail($id);
 
-
             return view('posts.show', compact('post'));
         }
 
@@ -95,9 +120,10 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function edit($id)
+        public function edit($id, $request )
         {
             $post= Post::findOrFail($id);
+
 
             return view('posts.edit', compact('post'));
         }
@@ -121,6 +147,8 @@
 
 
             $post = Post::findOrFail($id);
+
+
 
             $post->update($request->all());
 

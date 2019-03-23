@@ -14,6 +14,11 @@
                     <input type="text" name="title" class="form-control" value="{{$post->title}}">
                 </div>
 
+                <div class="form-group ">
+                    <input type="file" name="path" class="form-control">
+                    <img width="100" src="{{$post->path}}" alt="">
+                </div>
+
                 <div class="form-group">
                     <label for="content">Content</label>
                     <textarea class="form-control" name="content" id="" cols="30" rows="10">{{$post->content}}</textarea>
