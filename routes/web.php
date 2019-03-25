@@ -17,8 +17,25 @@
 	|
 	*/
 
-	Route::get('/', function () {
-	    return view('welcome');
+	Route::get('/', function (){
+
+//	    return view('welcome');
+
+
+
+        $data = [
+          'title' => 'Hi Student How are you second ',
+          'content'=> 'This a test mail , are you understand that'
+        ];
+
+
+
+	    Mail::send('emails.test', $data, function($message){
+
+	        $message->to('sazzad.sumon35@gmail.com', 'Sazzad Bin Ashique')->subject('Hello Sazzad');
+        });
+
+
 	});
 
 
