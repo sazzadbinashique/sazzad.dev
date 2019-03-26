@@ -11,8 +11,8 @@ class CrudGenerator extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:generator {name:Class (singular) for example User}';
-er
+    protected $signature = 'crud:generator';
+
     /**
      * The console command description.
      *
@@ -28,6 +28,11 @@ er
     public function __construct()
     {
         parent::__construct();
+    }
+
+    public function fire(){
+
+//        $this->line('Crud Created Successfully');
     }
 
     /**
@@ -50,7 +55,7 @@ er
 
     protected function getStub($type){
 
-        return file_get_contents(resource_path("stubs/$type. stub"));
+        return file_get_contents(resource_path("stubs/$type.stub"));
     }
 
 

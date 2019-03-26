@@ -14,5 +14,12 @@
     "lodash": "^4.16.2",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3"
+  },
+
+  "name": "your-app",
+  "version": "0.0.1",
+  "scripts": {
+    "gulp": "gulp",
+    "minify": "gulp minify"
   }
 }
