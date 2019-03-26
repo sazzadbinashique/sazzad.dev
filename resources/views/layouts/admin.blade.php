@@ -14,12 +14,12 @@
     <!-- Bootstrap Core CSS -->
     {{--<link href="{{asset('css/app.css')}}" rel="stylesheet">--}}
 
-    <link href="{{asset('assets/css/libs/blog-post.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/libs/bootstrap.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/libs/font-awesome.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/libs/metisMenu.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/libs/sd-admin-2.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/libs/styles.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/blog-post.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/metisMenu.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/sd-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -100,10 +100,6 @@
         {{--@endif--}}
         {{--</ul>--}}
 
-
-
-
-
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
@@ -183,12 +179,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
-
-
-
-
 
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -283,19 +273,12 @@
         <!-- /.navbar-static-side -->
     </nav>
 
-
-
-
-
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
                     <a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>
                 </li>
-
-
-
 
                 <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
@@ -321,10 +304,6 @@
 </div>
 
 
-
-
-
-
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -346,11 +325,12 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('assets/js/libs/jquery.js')}}"></script>
-<script src="{{asset('assets/js/libs/bootstrap.js')}}"></script>
-<script src="{{asset('assets/js/libs/metisMenu.js')}}"></script>
-<script src="{{asset('assets/js/libs/sb-admin-2.js')}}"></script>
-<script src="{{asset('assets/js/libs/scripts.js')}}"></script>
+
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.js')}}"></script>
+<script src="{{asset('assets/js/metisMenu.js')}}"></script>
+<script src="{{asset('assets/js/sb-admin-2.js')}}"></script>
+<script src="{{asset('assets/js/scripts.js')}}"></script>
 
 
 @yield('footer')
