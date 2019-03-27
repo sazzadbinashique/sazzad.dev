@@ -14,11 +14,11 @@
     <!-- Bootstrap Core CSS -->
     {{--<link href="{{asset('css/app.css')}}" rel="stylesheet">--}}
 
-    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/blog-post.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/metisMenu.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/sd-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet">
 
 
@@ -29,13 +29,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
 </head>
 
 <body id="admin-page">
-
 <div id="wrapper">
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -49,11 +46,7 @@
         </div>
         <!-- /.navbar-header -->
 
-
-
         <ul class="nav navbar-top-links navbar-right">
-
-
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -71,14 +64,7 @@
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
-
-
         </ul>
-
-
-
-
-
 
         {{--<ul class="nav navbar-nav navbar-right">--}}
         {{--@if(auth()->guest())--}}
@@ -147,8 +133,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -163,8 +147,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -179,7 +161,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -265,8 +246,6 @@
                         <!-- /.nav-second-level -->
                     </li>
                 </ul>
-
-
             </div>
             <!-- /.sidebar-collapse -->
         </div>
