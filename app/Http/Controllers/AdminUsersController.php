@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Role;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
@@ -14,7 +17,12 @@ class AdminUsersController extends Controller
     public function index()
     {
 
-        return view('admin.users.index');
+
+        $users = User::all();
+
+//        dd($users);
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -35,7 +43,13 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $roles = Role::pluck('name', 'id');
+
+
+//        dd($roles);
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -57,6 +71,9 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
+
+
+
         return view('admin.users.edit');
     }
 

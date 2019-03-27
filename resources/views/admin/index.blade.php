@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h1>Admin user</h1>
+    <h1>Admin </h1>
 
 @endsection
