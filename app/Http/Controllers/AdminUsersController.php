@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersRequest;
 use App\User;
 use App\Role;
 use Carbon\Carbon;
@@ -32,7 +33,10 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+
+        $roles = Role::pluck('name', 'id');
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -41,15 +45,16 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
 
-        $roles = Role::pluck('name', 'id');
+
+        $input= $request->all();
+
+        User::create($input);
 
 
-//        dd($roles);
-
-        return view('admin.users.create', compact('roles'));
+        return redirect('admin/users');
     }
 
     /**
