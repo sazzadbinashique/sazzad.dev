@@ -27,11 +27,7 @@
         Route::resource('posts', 'PostController');
 
 
-
-
-
     });
-
 
 
     Route::resource('admin/users', 'AdminUsersController');
