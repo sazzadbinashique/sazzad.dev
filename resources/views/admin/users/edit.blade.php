@@ -53,11 +53,13 @@
 
     <div class="form-group {{$errors->has('password')? 'has-error': ''}}">
         {!! Form::label('password', 'Password:') !!}
-        {!! Form::password('password', ['class'=>'form-control','value'=>"{{ old('password') }}"])!!}
+        {!! Form::password('password', ['class'=>'form-control'])!!}
         @if($errors->has('password'))
             <span class="text-danger"><em>{{$errors->first('password')}}</em></span>
         @endif
     </div>
+
+
 
     <div class="form-group">
         {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
