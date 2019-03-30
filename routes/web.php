@@ -22,15 +22,14 @@
         return view('welcome');
     });
 
-    Route::group(['middleware'=>'web'], function (){
+    Route::group(['middleware'=>'IsAdmin'], function (){
 
-        Route::resource('posts', 'PostController');
-
+        Route::resource('admin/users', 'AdminUsersController');
 
     });
 
+    Route::resource('posts', 'PostController');
 
-    Route::resource('admin/users', 'AdminUsersController');
 
 
     Auth::routes();

@@ -28,38 +28,6 @@ class User extends Authenticatable
     ];
 
 
-//    public function getNameAttribute($value){
-//
-//
-//        return  strtoupper($value);
-//    }
-
-
-
-
-//     public function setNameAttribute($value){
-//
-//
-//        $this->attributes['name']= strtoupper($value);
-//    }
-//
-//
-//
-// public function post(){
-//
-//         return $this->hasOne('App\Post');
-//     }
-//
-//
-//     public function posts(){
-//
-//        return $this->hasMany('App\Post');
-//     }
-
-
-//     public function roles(){
-//         return $this->belongsToMany('App\Role');
-//     }
 
     public function role(){
         return $this->belongsTo('App\Role');
@@ -71,20 +39,21 @@ class User extends Authenticatable
     }
 
 
-//    public function isAdmin(){
-//
-//        if($this->role->name == 'admin'){
-//            return true;
-//        }
-//        return false;
-//    }
+    public  function setPasswordAttribute($password){
+        if (!empty($password)){
+
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
 
 
+    public function isAdmin(){
 
+        if($this->role->name == 'admin'){
+            return true;
+        }
+        return false;
+    }
 
-
-//     public function getNameAttribute($value){
-//         return strtolower($value);
-//     }
 
 }
