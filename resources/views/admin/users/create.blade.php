@@ -5,8 +5,6 @@
     <h1>Create Users </h1>
 
     {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store','files'=>true]) !!}
-    {{--{!! Form::open(array('url' => 'AdminUsersController@store', 'method' => 'POST'))!!}--}}
-
 
     <div class="form-group{{$errors->has('name')? 'has-error': ''}}">
         {!! Form::label('name', 'Name:') !!}

@@ -26,7 +26,9 @@
 
         Route::resource('admin/users', 'AdminUsersController');
 
-        Route::resource('posts', 'PostController');
+        Route::resource('admin/posts', 'AdminPostsController');
+
+//        Route::resource('posts', 'PostController');
 
     });
 

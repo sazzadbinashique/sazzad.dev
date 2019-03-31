@@ -23,7 +23,7 @@ class IsAdmin
             }
         }
 
-        return redirect('/');
+        return redirect('/home');
 
 
     }
