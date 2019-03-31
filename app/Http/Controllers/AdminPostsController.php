@@ -8,6 +8,7 @@ use App\Http\Requests\AdminPostRequest;
 use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
@@ -48,6 +49,8 @@ class AdminPostsController extends Controller
     {
         $input = $request->all();
 
+        $user = Auth::user();
+
         if ($file= $request->file('photo_id')){
 
             $name = time() . $file->getClientOriginalName();
@@ -57,7 +60,9 @@ class AdminPostsController extends Controller
             $input['photo_id']= $photo->id;
         }
 
-        AdminPost::create($input);
+//        AdminPost::create($input);
+        $user->posts()->create($input);
+
 
         Session::flash('created_post', 'The Post has been Created successfull');
 

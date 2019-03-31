@@ -23,14 +23,6 @@
             @endif
         </div>
 
-        <div class="form-group{{$errors->has('body')? 'has-error': ''}}}">
-            {!! Form::label('body', 'Body:') !!}
-            {!! Form::textarea('body', null, ['class'=>'form-control'])!!}
-            @if($errors->has('body'))
-                <span class="text-danger"><em>{{$errors->first('body')}}</em></span>
-            @endif
-        </div>
-
         <div class="form-group">
             {!! Form::label('user_id', 'UserName:') !!}
             {!! Form::select('user_id', $users, array(''=> 'Choose Option'),  ['class'=> 'form-control']) !!}
@@ -46,9 +38,16 @@
             {!! Form::file('photo_id', null, ['class'=>'form-control'])!!}
         </div>
 
+        <div class="form-group{{$errors->has('body')? 'has-error': ''}}}">
+            {!! Form::label('body', 'Body:') !!}
+            {!! Form::textarea('body', null, ['class'=>'form-control'])!!}
+            @if($errors->has('body'))
+                <span class="text-danger"><em>{{$errors->first('body')}}</em></span>
+            @endif
+        </div>
 
         <div class="form-group">
-            {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Update Post', ['class'=>'btn btn-primary']) !!}
         </div>
 
         {!! Form::close() !!}

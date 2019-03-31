@@ -39,6 +39,10 @@ class User extends Authenticatable
     }
 
 
+    public function posts(){
+        return $this->hasMany('App\AdminPost');
+    }
+
 //    public  function setPasswordAttribute($password){
 //        if (!empty($password)){
 //
