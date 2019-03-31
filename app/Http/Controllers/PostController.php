@@ -2,6 +2,8 @@
     namespace App\Http\Controllers;
 
     use App\Http\Requests\CreatePostRequest;
+    use App\Role;
+    use App\User;
     use Illuminate\Http\Request;
     use App\Post;
 
@@ -30,8 +32,11 @@
          */
         public function create()
         {
+            $users = User::pluck('name', 'id');
 
-            return view('posts.create');
+            $roles = Role::pluck('name', 'id');
+
+            return view('posts.create', compact('users', 'roles'));
         }
 
         /**
@@ -54,6 +59,7 @@
                 $input['path']= $name;
             }
 
+//            dd($input);
             Post::create($input);
 
 
@@ -120,7 +126,7 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function edit($id, $request )
+        public function edit($id )
         {
             $post= Post::findOrFail($id);
 
@@ -138,21 +144,19 @@
         public function update(CreatePostRequest $request, $id)
         {
 
-//            $this->validate($request, [
-//
-//                'title'=>'required',
-//                'content'=>'required'
-//            ]);
-
-
 
             $post = Post::findOrFail($id);
 
+            $input = $request->all();
+//            dd($input);
 
+            if ($file=$request->file('path')){
+                $name = $file->getClientOriginalName();
+                $file->move('images', $name);
+                $input['path']= $name;
+            }
 
-            $post->update($request->all());
-
-//            dd($post);
+            $post->update($input);
 
             return redirect('/posts');
         }

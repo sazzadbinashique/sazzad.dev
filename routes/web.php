@@ -17,25 +17,22 @@
     |
     */
 
-    Route::get('/', function (){
-
-        return view('welcome');
-    });
+//    Route::get('/', function (){
+//
+//        return view('welcome');
+//    });
 
     Route::group(['middleware'=>'IsAdmin'], function (){
 
         Route::resource('admin/users', 'AdminUsersController');
 
+        Route::resource('posts', 'PostController');
+
     });
-
-    Route::resource('posts', 'PostController');
-
-
 
     Auth::routes();
 
-    Route::get('/home', 'HomeController@index');
-
+    Route::get('/', 'HomeController@index');
 
     Route::get('/admin', function (){
 

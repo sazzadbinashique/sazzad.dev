@@ -9,13 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in!
-
-                    <div class="well">
-                        <ul>
-                            <ol><a href="{{url('/posts')}}">All Posts</a></ol>
-                            <ol><a href="{{url('/posts/create')}}">Add Posts</a></ol>
-                        </ul>
-                    </div>
+                    <spam>{{Auth::user()->name}}</spam>
 
                 </div>
             </div>

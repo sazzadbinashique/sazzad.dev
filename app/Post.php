@@ -6,27 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-   
- public $directory = "/images/";
 
-//
-// 	public static function scopeLatest($query){
-//
-// 		return $query->orderBy('id', 'asc')->get();
-// 	}
-
-protected $fillable=['title','content', 'path'];
+    public $directory = "/images/";
 
 
-     public function user(){
-
-         return $this->belongsTo('App\User');
-     }
+    protected $fillable=[ 'user_id','title','content', 'is_admin', 'path'];
 
 
+    public function user(){
 
-     public  function getPathAttribute($value){
+        return $this->belongsTo('App\User');
+    }
 
-         return $this->directory . $value;
-     }
+
+    public  function role(){
+        return $this->belongsTo('App\Role');
+    }
+
+
+
+    public  function getPathAttribute($value){
+
+        return $this->directory . $value;
+    }
 }
