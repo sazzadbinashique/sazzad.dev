@@ -17,10 +17,10 @@
     |
     */
 
-//    Route::get('/', function (){
-//
-//        return view('welcome');
-//    });
+    Route::get('/', function (){
+
+        return view('welcome');
+    });
 
     Route::group(['middleware'=>'IsAdmin'], function (){
 
@@ -32,13 +32,12 @@
 
     Auth::routes();
 
-    Route::get('/', 'HomeController@index');
 
     Route::get('/admin', function (){
-
         return view('admin.index');
     });
 
+    Route::get('/home', 'HomeController@index');
 
 
 
