@@ -11,8 +11,6 @@
 
     <div class="col-md-9">
 
-
-
         {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['AdminPostsController@update', $post->id],'files'=>true]) !!}
 
         <div class="form-group{{$errors->has('tile')? 'has-error': ''}}">
@@ -23,10 +21,11 @@
             @endif
         </div>
 
-        <div class="form-group">
-            {!! Form::label('user_id', 'UserName:') !!}
-            {!! Form::select('user_id', $users, array(''=> 'Choose Option'),  ['class'=> 'form-control']) !!}
-        </div>
+        {{--<div class="form-group">--}}
+            {{--{!! Form::label('user_id', 'UserName:') !!}--}}
+            {{--{!! Form::select('user_id', $users, array(''=> 'Choose Option'),  ['class'=> 'form-control']) !!}--}}
+        {{--</div>--}}
+
         <div class="form-group">
             {!! Form::label('category_id', 'CategoryName:') !!}
             {!! Form::select('category_id', $categories, array(''=> 'Choose Option'), ['class'=> 'form-control']) !!}

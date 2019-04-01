@@ -38,7 +38,7 @@
                     <td>{{$post->category->name or ''}}</td>
                     <td><img height="50px" src="{{$post->photo->file or ''}}" alt=""></td>
                     <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
-                    <td>{{$post->body}}</td>
+                    <td>{{str_limit($post->body, 8)}}</td>
                     <td>{{$post->created_at->diffForHumans(Carbon\Carbon::now())}}</td>
                     <td>{{$post->updated_at->diffForHumans(Carbon\Carbon::now())}}</td>
                     <td>

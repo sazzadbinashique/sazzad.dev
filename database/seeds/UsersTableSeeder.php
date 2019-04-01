@@ -17,6 +17,14 @@ class UsersTableSeeder extends Seeder
             'name' => "Sumona Ahmded",
             'email' => "sumon@gmail.com",
             'password' => bcrypt('123456'),
+            'created_at'=>Carbon\Carbon::now(),
+            'updated_at'=>Carbon\Carbon::now(),
+        ]);
+
+        DB::table('categories')->insert([
+             ['name'=>'Laravel'],
+             ['name'=>'PHP'],
+             ['name'=>'JavaScript']
         ]);
     }
 }

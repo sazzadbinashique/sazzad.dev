@@ -59,13 +59,10 @@ class AdminPostsController extends Controller
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id']= $photo->id;
         }
-
 //        AdminPost::create($input);
         $user->posts()->create($input);
 
-
         Session::flash('created_post', 'The Post has been Created successfull');
-
 
         return redirect('admin/posts');
     }
@@ -91,11 +88,10 @@ class AdminPostsController extends Controller
     {
 
         $post = AdminPost::findOrFail($id);
-
-        $users = User::pluck('name', 'id');
+//        $users = User::pluck('name', 'id');
         $categories = Category::pluck('name', 'id');
 
-        return view('admin.posts.edit', compact('post', 'users', 'categories'));
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
@@ -107,22 +103,20 @@ class AdminPostsController extends Controller
      */
     public function update(AdminPostRequest $request, $id)
     {
-        $post = AdminPost::findOrFail($id);
-
+//        $post = AdminPost::findOrFail($id);
         $input = $request->all();
+        $user = Auth::user();
 
         if ($file= $request->file('photo_id')){
-
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id']= $photo->id;
         }
 
-        $post->update($input);
+       $user->posts()->findOrFail($id)->update($input);
 
-        Session::flash('updated_post', 'The Post has been Updated successfull');
+        Session::flash('updated_post', 'The Post has been Updated Successfull');
 
         return redirect('admin/posts');
     }
