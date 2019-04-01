@@ -94,8 +94,8 @@ class AdminCategoriesController extends Controller
 
 
         $category= Category::findOrFail($id);
-        $category->name = $request->name;
-        $category->update();
+//        $category->name = $request->name;
+        $category->update($request->all());
 
 
         Session::flash('updated_categories', 'The Category has been Updated Successfully');
@@ -110,6 +110,7 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
+//        Category::findOrFail($id)->delete();
         $category = Category::findOrFail($id);
         $category->delete();
 
