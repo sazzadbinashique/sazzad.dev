@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-//user \Carbon\Carbon;
 
 class AdminCategoriesController extends Controller
 {
@@ -42,13 +43,14 @@ class AdminCategoriesController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
+//        public $timestamps = false;
         $category = new Category();
 
         $category->name = $request->name;
-        $category->created_at =\Carbon\Carbon::now();
+        $category->created_at =Carbon::now();
         $category->save();
 
-//        dd($category);
+
 
         Session::flash('created_categories', 'The Category has been created Successfully');
 
@@ -87,9 +89,17 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        //
+
+
+        $category= Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->update();
+
+
+        Session::flash('updated_categories', 'The Category has been Updated Successfully');
+        return redirect('admin/categories');
     }
 
     /**
@@ -100,6 +110,10 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        Session::flash('deleted_categories', 'The category has been deleted Successfully');
+        return redirect('admin/categories');
     }
 }
