@@ -28,6 +28,8 @@
 
         Route::resource('admin/posts', 'AdminPostsController');
 
+        Route::resource('admin/categories', 'AdminCategoriesController');
+
 //        Route::resource('posts', 'PostController');
 
     });
