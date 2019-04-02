@@ -29,4 +29,11 @@ class Post extends Model
 
         return $this->directory . $value;
     }
+
+
+
+    public function post_comment(){
+
+        return $this->hasMany('App\PostComment');
+    }
 }

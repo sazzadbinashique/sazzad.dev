@@ -136,4 +136,14 @@ class AdminPostsController extends Controller
 
         return redirect('admin/posts');
     }
+
+
+
+    public function post($id){
+
+        $post = AdminPost::findOrFail($id);
+        $user= User::pluck('name','id');
+
+        return view('post', compact('post','user'));
+    }
 }

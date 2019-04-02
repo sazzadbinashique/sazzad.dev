@@ -8,19 +8,10 @@
 
 @section('content')
 
-<h1>Media Create</h1>
-
-
-
-     {!! Form::open(['method'=>'POST', 'action'=> 'AdminMediaController@store','class'=>'dropzone']) !!}
-
-
-      {!! Form::close() !!}
-
-
-
+    <h1>Media Create</h1>
+    {!! Form::open(['method'=>'POST', 'action'=> 'AdminMediaController@store','class'=>'dropzone']) !!}
+    {!! Form::close() !!}
 @endsection
-
 
 @section('scripts')
 
