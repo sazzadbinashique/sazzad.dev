@@ -142,8 +142,10 @@ class AdminPostsController extends Controller
     public function post($id){
 
         $post = AdminPost::findOrFail($id);
-        $user= User::pluck('name','id');
-
-        return view('post', compact('post','user'));
+        $comments = $post->post_comment->where('is_active',1);
+        return view('post', compact('post', 'comments'));
     }
+
+
+
 }

@@ -32,8 +32,5 @@ class Post extends Model
 
 
 
-    public function post_comment(){
 
-        return $this->hasMany('App\PostComment');
-    }
 }

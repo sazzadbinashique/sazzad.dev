@@ -65,7 +65,9 @@ class AdminCategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+//        $category = Category::findOrFail($id);
+
+
     }
 
     /**

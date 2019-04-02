@@ -27,6 +27,8 @@
             <th>Body</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>Deleted</th>
+            <th>View</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +39,7 @@
                     <td>{{$post->user->name}}</td>
                     <td>{{$post->category->name or ''}}</td>
                     <td><img height="50px" src="{{$post->photo->file or ''}}" alt=""></td>
-                    <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
+                    <td><a href="{{route('posts.edit', $post->id)}}">{{str_limit($post->title, 8)}}</a></td>
                     <td>{{str_limit($post->body, 8)}}</td>
                     <td>{{$post->created_at->diffForHumans(Carbon\Carbon::now())}}</td>
                     <td>{{$post->updated_at->diffForHumans(Carbon\Carbon::now())}}</td>
@@ -48,6 +50,8 @@
                         </div>
                         {!! Form::close() !!}
                     </td>
+                    <td><a href="{{route('home.post', $post->id)}}">View</a></td>
+                    <td><a href="{{route('comments.show', $post->id)}}">CommentView</a></td>
 
                 </tr>
             @endforeach

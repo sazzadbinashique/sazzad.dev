@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>All Comments</h1>
+    <h1>{{ucfirst(Auth::user()->name)}}'s Comment</h1>
 
     @if(Session::has('updated_comment'))
         <p class="alert alert-success">{{session('updated_comment')}}</p>
@@ -78,7 +78,7 @@
             </tr>
         @endforeach
         @else
-            <h4 class="text-center">No Comment</h4>
+            <h2 class="text-center">NO Comment</h2>
         @endif
         </tbody>
     </table>

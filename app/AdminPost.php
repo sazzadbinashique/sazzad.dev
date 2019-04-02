@@ -23,4 +23,9 @@ class AdminPost extends Model
     public function photo(){
         return $this->belongsTo('App\Photo');
     }
+
+    public function post_comment(){
+
+        return $this->hasMany('App\PostComment');
+    }
 }
