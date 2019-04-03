@@ -20,7 +20,8 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>FullName</th>
+            <th>usersname</th>
             <th>Photos</th>
             <th>Email</th>
             <th>Role</th>
@@ -35,6 +36,8 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
+{{--                    <td>{{$user->first_name . ' ' . $user->last_name}}</td>--}}
+                    <td>{{$user->fullname()}}</td>
                     <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
                     <td><img height="60px" src="{{$user->photo? $user->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
                     <td>{{$user->email}}</td>

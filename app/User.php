@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'photo_id', 'is_active',
+       'first_name','last_name', 'name', 'email', 'password', 'role_id', 'photo_id', 'is_active',
     ];
 
     /**
@@ -50,6 +50,15 @@ class User extends Authenticatable
 //        }
 //    }
 
+
+    public function fullname(){
+
+        return strtoupper($this->first_name) . ' ' . strtoupper($this->last_name);
+    }
+    public function getFullNameAttribute(){
+
+        return strtoupper($this->first_name) . ' ' . strtoupper($this->last_name);
+    }
 
     public function isAdmin(){
 

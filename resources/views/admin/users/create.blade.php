@@ -6,8 +6,22 @@
 
     {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store','files'=>true]) !!}
 
+    <div class="form-group{{$errors->has('first_name')? 'has-error': ''}}">
+        {!! Form::label('first_name', 'FirstName:') !!}
+        {!! Form::text('first_name', null, ['class'=>'form-control'])!!}
+        @if ($errors->has('first_name'))
+            <span class="text-danger"><em>{{ $errors->first('first_name') }}</em></span>
+        @endif
+    </div>
+    <div class="form-group{{$errors->has('last_name')? 'has-error': ''}}">
+        {!! Form::label('last_name', 'LastName:') !!}
+        {!! Form::text('last_name', null, ['class'=>'form-control'])!!}
+        @if ($errors->has('last_name'))
+            <span class="text-danger"><em>{{ $errors->first('last_name') }}</em></span>
+        @endif
+    </div>
     <div class="form-group{{$errors->has('name')? 'has-error': ''}}">
-        {!! Form::label('name', 'Name:') !!}
+        {!! Form::label('name', 'UserName:') !!}
         {!! Form::text('name', null, ['class'=>'form-control'])!!}
         @if ($errors->has('name'))
             <span class="text-danger"><em>{{ $errors->first('name') }}</em></span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUsersRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
 use App\User;
@@ -22,8 +23,10 @@ class AdminUsersController extends Controller
 
 
         $users = User::all();
+//      $users = User::all()->sortBy('full_name');
+//        $users = User::find(3);
+//        echo $users->full_name;
 
-//        dd($users);
 
         return view('admin.users.index', compact('users'));
     }
@@ -110,7 +113,7 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsersRequest $request, $id)
+    public function update(UpdateUsersRequest $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -130,7 +133,7 @@ class AdminUsersController extends Controller
         }
 
         $user->update($input);
-
+//        dd($user);
         Session::flash('updated_user', 'The User has been Updated successfull');
 
         return redirect('admin/users');

@@ -143,9 +143,19 @@ class AdminPostsController extends Controller
 
         $post = AdminPost::findOrFail($id);
         $comments = $post->post_comment->where('is_active',1);
-        return view('post', compact('post', 'comments'));
+        $categories = Category::all();
+
+        return view('post', compact('post', 'comments','categories'));
     }
 
+
+    public  function blog(){
+
+        $posts = AdminPost::all();
+        $categories = Category::all();
+
+        return view('blog', compact('posts', 'categories'));
+    }
 
 
 }

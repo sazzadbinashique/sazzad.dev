@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AdminPost;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -47,13 +48,7 @@ class HomeController extends Controller
 
 
 
-    public  function blog(){
-
-        $posts = AdminPost::all();
-
-//        dd($posts);
 
 
-        return view('blog', compact('posts'));
-    }
+
 }

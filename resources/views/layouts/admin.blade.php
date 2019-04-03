@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">Home</a>
+            <a class="navbar-brand" href="/home">View Blog</a>
         </div>
         <!-- /.navbar-header -->
 

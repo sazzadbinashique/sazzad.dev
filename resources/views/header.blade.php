@@ -8,19 +8,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Sazzad.me</a>
+            <a class="navbar-brand" href="/blog">Sazzad.me</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                @foreach($categories as $category)
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">{{$category->name}}</a>
                 </li>
+                @endforeach
+
+
                 <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="{{'/admin'}}">Admin</a>
                 </li>
             </ul>
         </div>
