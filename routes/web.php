@@ -17,16 +17,17 @@
     |
     */
 
-    Route::get('/', function (){
-
-        return view('welcome');
-    });
+//    Route::get('/', function (){
+//
+//        return view('welcome');
+//    });
 
     Auth::routes();
 
     Route::get('/home', 'HomeController@index');
 
     Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+    Route::get('/', ['as'=>'blog.post', 'uses'=>'HomeController@blog']);
 
 
     Route::group(['middleware'=>'IsAdmin'], function (){

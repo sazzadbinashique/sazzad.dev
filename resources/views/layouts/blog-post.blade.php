@@ -139,15 +139,21 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+    <div class="row">
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <p class="text-center">Copyright &copy; Your Website 2019</p> -->
+                    <p class="text-center">
+                        Copyright © All rights reserved.<span class="sep"> | </span> My Account:
+                        <a href="https://facebook.com/sazzadbinashique">Facebook</a> by
+                        <a href="https://github.com/sazzadbinashique">Sazzad Bin Ashique</a>.</p>
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
-        </div>
-        <!-- /.row -->
-    </footer>
-
+            <!-- /.row -->
+        </footer>
+    </div>
 </div>
 <!-- /.container -->
 
